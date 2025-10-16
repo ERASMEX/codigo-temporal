@@ -6,7 +6,6 @@ Guarda este archivo como software_profesional_final.py y asegúrate de tener:
    clear.png, excel.png, pdf.png, clean.png, auditoria.png, user.png, logout.png
  - pip install tkcalendar pillow pandas reportlab openpyxl folium
 """
-UPDATE users SET rol='admin' WHERE username='ERICK';
 import os
 import sys
 import sqlite3
@@ -1677,4 +1676,5 @@ def cerrar_conexion(conexion):
     if conexion.is_connected():
         conexion.close()
         print("Conexión cerrada")
+
 
