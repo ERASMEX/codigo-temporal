@@ -1654,3 +1654,34 @@ def iniciar_mejoras_avanzadas():
 iniciar_mejoras_avanzadas()
 
 # ===================== FIN BLOQUE MEJORAS AVANZADAS =====================
+import mysql.connector
+from mysql.connector import Error
+
+def conectar_base_datos():
+    """Establece la conexión con la base de datos MySQL."""
+    try:
+        conexion = mysql.connector.connect(
+            host='localhost',
+            database='nombre_base_datos',
+            user='usuario',
+            password='contraseña'
+        )
+        if conexion.is_connected():
+            print("Conexión exitosa a la base de datos")
+            return conexion
+    except Error as e:
+        print(f"Error al conectar a la base de datos: {e}")
+        return None
+
+def cerrar_conexion(conexion):
+    """Cierra la conexión con la base de datos."""
+    if conexion.is_connected():
+        conexion.close()
+        print("Conexión cerrada")
+
+if __name__ == "__main__":
+    conexion = conectar_base_datos()
+    if conexion:
+        # Realiza operaciones con la base de datos aquí
+        cerrar_conexion(conexion)
+
